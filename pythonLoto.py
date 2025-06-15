@@ -3,7 +3,6 @@ import csv
 import random
 from collections import Counter
 
-# Configuración de logging
 logging.basicConfig(
     filename="Loto_output.log",
     level=logging.INFO,
@@ -19,16 +18,14 @@ def main_menu():
         print("1 - Combinación caliente de números")
         print("2 - Combinación aleatoria de números")
         print("3 - Salir")
-
         option = input("Seleccione una opción: ").strip()
-
         if option == '3':
             logging.info("El usuario ha salido del programa.")
             print("Saliendo del programa.")
             break
         elif option in {'1', '2'}:
-            columns = input("¿Cuántas combinaciones desea generar? (1-7): ").strip()
-            if columns.isdigit() and 1 <= int(columns) <= 7:
+            columns = input("¿Cuántas combinaciones desea generar? (1-8): ").strip()
+            if columns.isdigit() and 1 <= int(columns) <= 8:
                 columns = int(columns)
                 logging.info(f"Opción seleccionada: {option} - Combinaciones: {columns}")
 
@@ -43,7 +40,7 @@ def main_menu():
                     print(f"Columna {i}: {combo}")
                     logging.info(f"Columna {i}: {combo}")
             else:
-                print("Entrada inválida. Por favor, introduzca un número del 1 al 7.")
+                print("Entrada inválida. Por favor, introduzca un número del 1 al 8.")
                 logging.warning(f"Entrada inválida para número de columnas: {columns}")
         else:
             print("Opción no válida. Intente de nuevo.")
@@ -84,7 +81,6 @@ def generate_hot_combinations(csv_path, num_combinations, top_n=15):
     for _ in range(num_combinations):
         combination = sorted(random.sample(hot_numbers, 6))
         combinations.append(combination)
-
     return combinations
 
 if __name__ == "__main__":
