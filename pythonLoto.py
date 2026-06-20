@@ -9,7 +9,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-CSV_FILE = "data/Apr28-June15_2025.csv"
+CSV_FILE = "data/Bonoloto_Last4Months.csv"
 
 def main_menu():
     logging.info("Programa iniciado.")
